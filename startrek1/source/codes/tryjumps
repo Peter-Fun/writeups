@@ -1,0 +1,26 @@
+jumps = {}#{4: 75, 5: 15, 19: 41, 21: 3, 28: 50, 31: 8, 35: 96, 44: 82, 47: 30, 52: 23, 70: 91, 76: 41, 81: 62, 88: 67,53:94}
+missing = [] #[58, 59, 60, 61, 62]
+
+for i in range(1,7):
+    icurr = i
+    if icurr in jumps:
+        icurr = jumps[icurr]
+    for j in range(1,7):
+        jcurr =icurr +j
+        if jcurr in jumps:
+            jcurr = jumps[jcurr]
+        for k in range(1,7):
+            kcurr = jcurr+k
+            if kcurr in jumps:
+                kcurr = jumps[kcurr]
+            for l in range(1,7):
+                lcurr =kcurr+ l
+                if lcurr in jumps:
+                   lcurr = jumps[lcurr]
+                for m in range(1,7):
+                    mcurr =lcurr+ m
+                    if mcurr in jumps:
+                        mcurr = jumps[mcurr]
+                    elif mcurr in missing:
+                        print(mcurr,i,j,k,l,m)
+                        missing.remove(mcurr)
